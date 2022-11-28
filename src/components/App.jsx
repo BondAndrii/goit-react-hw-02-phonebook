@@ -15,19 +15,23 @@ class App extends Component {
   // }  
   formSubmitHandler = data => {
     console.log("in App", data);
-   this.setState(({ contacts }) => ({
-     contacts: [contacts, ...contacts],
-     
-   }));
-    console.log(this.state.contacts);
+    console.log("state before", this.state.contacts)
+    this.setState(({ contacts }) => ({
+     contacts: [...contacts, data],     
+   }));    
   }
+
   render() {  
     return (
       <div>
         <h1>Phonebook</h1>
         <Form priSubmit={this.formSubmitHandler} />
         <div>
-            <h2>Contacts</h2>
+          <h2>Contacts</h2>
+          <ul>
+            {this.state.contacts.map(contact => <li>{contact.name}</li>
+            )}
+          </ul>
         </div>
       </div>
     )
