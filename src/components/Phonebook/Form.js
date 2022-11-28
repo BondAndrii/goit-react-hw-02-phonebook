@@ -3,14 +3,15 @@ import { nanoid } from "nanoid";
 class Form extends Component {
     state = {
         name: '',
+        number:'',
         id:'',
     }
     nameId = nanoid();
     // numberId = nanoid();
     handleChange = e => {
-        const { id, value } = e.currentTarget;
+        const { name, id, value } = e.currentTarget;
         this.setState({
-            name: value,
+            [name]: value,
             id: id,
         });        
         console.log(this.state);
@@ -28,7 +29,7 @@ class Form extends Component {
     // console.log("sibmit", this.state.contacts);  
     }
     reset = () => {
-        this.setState({ name: '', id:''});
+        this.setState({ name: '', number:'', id:''});
     };
     render() {
         return (
@@ -47,18 +48,18 @@ class Form extends Component {
                         required
                     />
                 </label>
-                {/* <label htmlFor={this.numberId}>Number:
+                <label htmlFor={this.numberId}>Number:
                     <input
                         type="tel"
                         name="number"
                         value={this.state.number}
-                        id={this.numberId}
+                        id={this.nameId}
                         onChange={this.handleChange}
                         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                         required
                     />
-                </label> */}
+                </label>
                 
                 <button type="submit">Add contact</button>
             </form>

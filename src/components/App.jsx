@@ -29,7 +29,7 @@ class App extends Component {
         <div>
           <h2>Contacts</h2>
           <ul>
-            {this.state.contacts.map(contact => <li>{contact.name}</li>
+            {this.state.contacts.map(contact => <li key={contact.id}>{contact.name}: {contact.number} </li>
             )}
           </ul>
         </div>
