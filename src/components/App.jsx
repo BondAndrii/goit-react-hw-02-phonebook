@@ -26,10 +26,11 @@ class App extends Component {
       <div>
         <h1>Phonebook</h1>
         <Form priSubmit={this.formSubmitHandler} />
+        {/* <Form priSubmit={this.formSubmitHandler} /> */}
         <div>
           <h2>Contacts</h2>
           <ul>
-            {this.state.contacts.map(contact => <li key={contact.id}>{contact.name}: {contact.number} </li>
+            {this.state.contacts.map((contact, index) => <li id={contact.id}>{contact.name}: {contact.number} </li>
             )}
           </ul>
         </div>
