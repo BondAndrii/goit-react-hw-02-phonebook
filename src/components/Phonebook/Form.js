@@ -12,8 +12,7 @@ class Form extends Component {
         const { name, value } = e.currentTarget;
         this.setState({
             [name]: value,
-            id: nanoid()
-            
+            id: nanoid()            
         });        
         // console.log(this.state);
         // console.log(this.state.id);

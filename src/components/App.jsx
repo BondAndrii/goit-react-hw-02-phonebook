@@ -1,13 +1,13 @@
 import React, { Component } from "react"; 
 import Form from "./Phonebook/Form";
 import Filter from './Phonebook/Filter'
-import PhoneBook from "./Phonebook/Phonebook";
+import PhoneBook from './Phonebook/Phonebook'
 
 class App extends Component {
   state = {
   contacts: [],
-  name: '',
-  number: '',
+  // name: '',
+  // number: '',
   filter:'',
   }
   // handleContactChange = event => {
@@ -20,19 +20,27 @@ class App extends Component {
   formSubmitHandler = data => {
     // console.log("in App", data);
     // console.log("state before", this.state.contacts)
-    this.setState(({ name, number, contacts }) => ({
-      contacts: [...contacts, data],
-      name: [...name, data.name],
-      number: [...number, data.number]
+    // const newAbon = data.name;
+    if (this.state.contacts.find(contact => contact.name === data.name)) {
+      const message = `Абонент ${data.name} вже є в книзі`;
+      alert(message);  
+    }
+    else {
+      this.setState(({ name, number, contacts }) => ({
+        contacts: [...contacts, data],
+        // name: [...name, data.name],
+        // number: [...number, data.number]
       
-    })); 
-   console.log(this.state.name, this.state.number) 
+      }));
+    }
+   
   }
   doFilter = (e) => {
     this.setState({ filter: e.currentTarget.value });
     console.log(this.state);
     
   }
+
   toFoundAbonent = () => {
     const { contacts, filter } = this.state;
     const normalizedFilter = filter.toLocaleLowerCase();
