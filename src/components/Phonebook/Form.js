@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { nanoid } from "nanoid";
+import PropTypes from "prop-types";
+
 class Form extends Component {
     state = {
         name: '',
@@ -70,3 +72,7 @@ class Form extends Component {
     }
 }
 export default Form;
+
+Form.propTypes= {
+    priSubmit: PropTypes.func.isRequired,
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const PhoneBook = ({ contacts, onDelete }) => (
     <ul>
@@ -11,3 +12,11 @@ const PhoneBook = ({ contacts, onDelete }) => (
 );
 
 export default PhoneBook;
+
+PhoneBook.propTypes = {
+    contacts: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        number: PropTypes.number.isRequired,
+        id: PropTypes.string.isRequired,
+    }))
+}
