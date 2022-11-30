@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./Phonebook.css"
 
 const PhoneBook = ({ contacts, onDelete }) => (
-    <ul>
-        {contacts.map((contact) => <li key={contact.id} id={contact.id}>
-            <p>{contact.name}: {contact.number}</p>
-            <button type="button" onClick={()=> onDelete(contact.id)}>Видали!</button>
+    <ul className="Phonebook">
+        {contacts.map((contact) => <li className="Phonebook__element" key={contact.id} id={contact.id}>
+            <p className="Text">{contact.name}: {contact.number}</p>
+            <button className="Button__element" type="button" onClick={()=> onDelete(contact.id)}>Видали!</button>
         </li>
         )}
     </ul>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Form from "./Phonebook/Form";
 import Filter from './Phonebook/Filter'
 import PhoneBook from './Phonebook/Phonebook'
+import "./App.css"
 
 class App extends Component {
   state = {
@@ -61,11 +62,11 @@ class App extends Component {
     const { filter} = this.state;
     const foundAbonent = this.toFoundAbonent();
     return (
-    <div>
-      <h1>Записник контактів</h1>
+    <div className="Container">
+      <h1 className="Tittle">Записник контактів</h1>
       <Form priSubmit={this.formSubmitHandler} />      
       <div>
-        <h2>Контакти</h2>
+        <h2 className="SecondTittle">Контакти</h2>
         <Filter value={filter} onChange={this.doFilter} onDelete={this.doClear } />
         <PhoneBook contacts={foundAbonent} onDelete={this.deleteContact} />
       </div>

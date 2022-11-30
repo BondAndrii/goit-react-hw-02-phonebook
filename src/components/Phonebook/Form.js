@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { nanoid } from "nanoid";
 import PropTypes from "prop-types";
+import "./Form.css"
 
 class Form extends Component {
     state = {
@@ -36,11 +37,13 @@ class Form extends Component {
     render() {
         return (
             
-            <form  onSubmit={this.handleSubmit}>
-                <label htmlFor={this.nameId}>Iм'я:
+            <form className="Form" onSubmit={this.handleSubmit}>
+                <label className="Label" htmlFor={this.nameId}>
+                    <p className="Text">Iм'я:</p>
                     <input
                         type="text"
                         name="name"
+                        className="Input"
                         id={this.nameId}
                         value={this.state.name}
                         onChange={this.handleChange}
@@ -48,12 +51,15 @@ class Form extends Component {
                         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                         required
-                    /></label>
+                    />
+                </label>
                
-                <label htmlFor={this.numberId}>Номер:
+                <label className="Label" htmlFor={this.numberId}>
+                    <p className="Text">Номер:</p>
                     <input
                         type="tel"
                         name="number"
+                        className="Input"
                         value={this.state.number}
                         id={this.numberId}
                         onChange={this.handleChange}
@@ -64,7 +70,7 @@ class Form extends Component {
                     />
                 </label>
                 
-                <button type="submit">Запиши!</button>
+                <button className="Button" type="submit">Запиши!</button>
             </form>
             
                 

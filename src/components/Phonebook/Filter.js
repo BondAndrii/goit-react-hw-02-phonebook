@@ -1,14 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./Filter.css"
 
 const Filter = ({value, onChange, onDelete}) => (
-    <label>Пошук за ім'ям: 
+    <label className="LabelFilter">
+        <p className="Text">Пошук за ім'ям:</p> 
         <input
             type="text" value={value}
+            className="FilterInput"
             placeholder="введи ім'я"
             onChange={onChange}
         />
-        <button type="button" onClick={onDelete}>Зітрись!</button>
+        <button className="ButtonFilter" type="button" onClick={onDelete}>Зітрись!</button>
     </label>
         )
 export default Filter;
