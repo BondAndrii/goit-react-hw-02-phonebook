@@ -62,11 +62,11 @@ class App extends Component {
     const foundAbonent = this.toFoundAbonent();
     return (
     <div>
-      <h1>Phonebook</h1>
+      <h1>Записник контактів</h1>
       <Form priSubmit={this.formSubmitHandler} />      
       <div>
-        <h2>Contacts</h2>
-          <Filter value={filter} onChange={this.doFilter} onDelete={this.doClear } />
+        <h2>Контакти</h2>
+        <Filter value={filter} onChange={this.doFilter} onDelete={this.doClear } />
         <PhoneBook contacts={foundAbonent} onDelete={this.deleteContact} />
       </div>
     </div>
