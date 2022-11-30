@@ -44,6 +44,9 @@ class App extends Component {
     this.setState({ filter: e.currentTarget.value });
     console.log(this.state);    
   }
+  doClear = () => {
+    this.setState({ filter: '' })
+  }
   toFoundAbonent = () => {
     const { contacts, filter } = this.state;
     const normalizedFilter = filter.toLocaleLowerCase();
@@ -63,8 +66,8 @@ class App extends Component {
       <Form priSubmit={this.formSubmitHandler} />      
       <div>
         <h2>Contacts</h2>
-        <Filter value={filter} onChange={this.doFilter} />
-          <PhoneBook contacts={foundAbonent} onDelete={this.deleteContact} />
+          <Filter value={filter} onChange={this.doFilter} onDelete={this.doClear } />
+        <PhoneBook contacts={foundAbonent} onDelete={this.deleteContact} />
       </div>
     </div>
   );
